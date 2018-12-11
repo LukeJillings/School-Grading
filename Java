@@ -1,34 +1,71 @@
-import java.util.Scanner;
-public class ExamScores
+public class ExamScoresTest
 {
 	public static void main (String[]args) {
 	
-		
+	//General variables	
 	double totalGrade = 0;
+	
 	//Adjust mid term exam results. If not completed input 0
-	double midtermExam = 0;
+	double midtermExam = 76.66666;
+	
 	//Adjust homework grades. First array is the total marks the homework is worth. If not completed a homework place 0
-	double homework[] = {20, 0, 0, 0, 0, 0, 0};
-	double groupwork[] = {30, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	double homework[] = {20, 9, 8, 9, 8, 9, 10};
+	double groupwork[] = {30, 7, 8, 10, 8, 9, 10, 10, 10, 0};
+	
 	//Adjust final exam results. If not completed input 0
 	double finalExam = 0;
 	
+	//Methods that calculate score
 	double grade1 = calculateMidTerm(midtermExam);
 	double grade2 = calculate(homework);
 	double grade3 = calculate(groupwork);
 	double grade4 = calculateFinal(finalExam);
 
-
+	//Total grade sum
 	totalGrade = grade1 + grade2 + grade3 + grade4;
 	
+	//Individual grade percent
 	System.out.println("MidTerm exam results: " + grade1 + "%");
 	System.out.println("Homework results: " + grade2 + "%");
 	System.out.println("Groupwork results: " + grade3 + "%");
 	System.out.println("Final exam results: " + grade4 + "%");
 	System.out.println("Total Percent of grade: " + totalGrade + "%");
 	
+	//Final grade letter
 	String letterGrade = calculateLetter(totalGrade);
 	System.out.println("You final letter grade: " + letterGrade);
+	}
+	
+
+	//Calculate mid term exam
+	public static double calculateMidTerm(double test) {
+		
+		double result = test/100;
+		result = result*0.3;		//Change depending on exam worth
+		result = result*100;
+		return result;
+	}
+	
+	//Calculate Final exam
+		public static double calculateFinal(double test) {
+			
+			double result = test/100;
+			result = result*0.2;	//Change depending on exam worth
+			result = result*100;
+			return result;
+		}
+	
+	//Calculates grade from all homework
+	public static double calculate(double test[]) {
+		double myScore = 0;
+		double fullScore = (test.length - 1) * 10;
+		
+		for(int i = 1; i < test.length; i++) {
+			myScore += test[i];			
+		}
+		double result = (myScore/fullScore)*test[0];
+		return result;
+		
 	}
 	
 	//Calculate Letter grade
@@ -68,34 +105,5 @@ public class ExamScores
 			letterGrade = "F";
 		}
 		return letterGrade;
-	}
-	//Calculate mid term exam
-	public static double calculateMidTerm(double test) {
-		
-		double result = test/100;
-		result = result*0.3;		//Change depending on exam worth
-		result = result*100;
-		return result;
-	}
-	//Calculate Final exam
-		public static double calculateFinal(double test) {
-			
-			double result = test/100;
-			result = result*0.2;	//Change depending on exam worth
-			result = result*100;
-			return result;
-		}
-	
-	//Calculates grade from all homework
-	public static double calculate(double test[]) {
-		double myScore = 0;
-		double fullScore = (test.length - 1) * 10;
-		
-		for(int i = 1; i < test.length; i++) {
-			myScore += test[i];			
-		}
-		double result = (myScore/fullScore)*test[0];
-		return result;
-		
 	}
 }
