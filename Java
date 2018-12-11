@@ -6,11 +6,11 @@ public class ExamScoresTest
 	double totalGrade = 0;
 	
 	//Adjust mid term exam results. If not completed input 0
-	double midtermExam = 76.66666;
+	double midtermExam = 0;
 	
 	//Adjust homework grades. First array is the total marks the homework is worth. If not completed a homework place 0
-	double homework[] = {20, 9, 8, 9, 8, 9, 10};
-	double groupwork[] = {30, 7, 8, 10, 8, 9, 10, 10, 10, 0};
+	double homework[] = {20, 0, 0, 0, 0, 0, 0};
+	double groupwork[] = {30, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 	
 	//Adjust final exam results. If not completed input 0
 	double finalExam = 0;
